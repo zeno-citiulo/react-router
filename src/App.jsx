@@ -1,31 +1,24 @@
-import React from 'react';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route
-} from 'react-router-dom';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./Components/Navbar";
+import PostList from "./Pages/PostList";
+import PostDetail from "./Pages/PostDetail";
+import Home from "./Pages/Home";
+import About from "./Pages/About";
+import "./styles/style.css"
 
-import Navbar from './Components/Navbar';
-import Home from './Pages/Home';
-import About from './Pages/About';
-import Posts from './Pages/Posts';
-
-import './styles/style.css';
-
-function App() {
+const App = () => {
   return (
     <Router>
       <Navbar />
-
-      <div className="content">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/chi-siamo" element={<About />} />
-          <Route path="/posts" element={<Posts />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/posts" element={<PostList />} />
+        <Route path="/posts/:id" element={<PostDetail />} />
+      </Routes>
     </Router>
   );
-}
+};
 
 export default App;
